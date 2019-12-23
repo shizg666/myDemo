@@ -1,0 +1,12 @@
+server:
+  port: 38080
+feign:
+  sentinel:
+    enabled: true
+spring:
+  application:
+    name: smartme-df
+  profiles:
+    active: prod
+logging:
+  config: classpath:logback-spring.xml
