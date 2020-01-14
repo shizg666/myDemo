@@ -1,10 +1,18 @@
 spring:
   profiles: prod
+  mail:
+    host: smtp.163.com
+    port: 25
+    username: shizg666@163.com
+    password: shizg666
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
 #  cloud:
 #    nacos:
 #      discovery:
 #        server-addr: 172.16.0.85:8848
-  data:
+#  data:
 #    mongodb:
 #      uri: mongodb://root:aA123456@172.16.0.85:27017,172.16.0.86:27017,172.16.0.87:27017/cloud?authSource=cloud&replicaSet=cloud&slaveOk=true&write=1&readPreference=secondaryPreferred
 #      connections-per-host: 50
@@ -18,24 +26,24 @@ spring:
 #      auto-connect-retry: true
 #      socket-keep-alive: true
   ## mysql
-  datasource:
-    url: jdbc:mysql://49.232.174.101:3306/smarthome?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimeZone=CTT
-    username: root
-    password: 123456
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    type: com.alibaba.druid.pool.DruidDataSource
-    initialSize: 1
-    minIdle: 3
-    maxActive: 100
-    maxWait: 60000
-    timeBetweenEvictionRunsMillis: 60000
-    minEvictableIdleTimeMillis: 30000
-    validationQuery: select 'x'
-    testWhileIdle: true
-    testOnBorrow: false
-    testOnReturn: false
-    poolPreparedStatements: true
-    maxPoolPreparedStatementPerConnectionSize: 20
+#  datasource:
+#    url: jdbc:mysql://49.232.174.101:3306/smart_home?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimeZone=CTT
+#    username: root
+#    password: 123456
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    initialSize: 1
+#    minIdle: 3
+#    maxActive: 100
+#    maxWait: 60000
+#    timeBetweenEvictionRunsMillis: 60000
+#    minEvictableIdleTimeMillis: 30000
+#    validationQuery: select 'x'
+#    testWhileIdle: true
+#    testOnBorrow: false
+#    testOnReturn: false
+#    poolPreparedStatements: true
+#    maxPoolPreparedStatementPerConnectionSize: 20
   ## redis链接
   redis:
     database: 0
@@ -61,17 +69,6 @@ spring:
         max-wait: -1ms
     timeout: 30000ms
 
-mqtt:
-  server:
-    url: tcp://172.16.0.87:1883
-    client-id: smarthome_em
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
-
 # 配置slq打印日志
 #mybatis-plus:
 #  configuration:
@@ -81,16 +78,6 @@ management:
 
 ditu:
   ak: dvBKa0Y3dcz7oZG3RgCXU3TN1gGMFQUF
-
-auth:
-  feign:
-    token:
-      enable: true
-smarthome:
-  apk:
-    update:
-      single: false
-
 web:
   app-pic-path: http://www.lokosmart.com:9000/images/appicon/
 

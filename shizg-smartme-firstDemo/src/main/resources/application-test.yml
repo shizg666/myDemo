@@ -18,11 +18,16 @@ spring:
       #控制是否在一个连接时，系统会自动重试
       auto-connect-retry: true
       socket-keep-alive: true
+  mail:
+    host: smtp.163.com
+    port: 25
+    username: shizg666@163.com
+    password: shizg666
   ## mysql
   datasource:
-    url: jdbc:mysql://40.73.77.122:3306/smart_home?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimeZone=CTT
+    url: jdbc:mysql://49.232.174.101:3306/smart_home?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimeZone=CTT
     username: root
-    password: aA123456
+    password: 123456
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     initialSize: 1

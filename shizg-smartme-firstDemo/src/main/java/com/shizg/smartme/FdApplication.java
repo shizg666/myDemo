@@ -1,14 +1,10 @@
 package com.shizg.smartme;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.scheduling.annotation.EnableAsync;
-import org.springframework.scheduling.annotation.EnableScheduling;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -18,13 +14,14 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
-@EnableDiscoveryClient
+//@EnableDiscoveryClient
 @EnableSwagger2
 @ComponentScan("com.shizg.smartme.*")
-@MapperScan("com.shizg.smartme.**.mapper")
-@EnableAsync
-@EnableScheduling
-@EnableFeignClients
+//@MapperScan("com.shizg.smartme.**.mapper")
+//@EnableAsync
+//@EnableScheduling
+//@EnableFeignClients
+@EnableConfigurationProperties
 public class FdApplication {
 
 	public static void main(String[] args) {

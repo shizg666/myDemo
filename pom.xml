@@ -16,6 +16,8 @@
         <relativePath />
     </parent>
 
+    <!--手动指定 Java 版本，可不添加，使用SpringBoot 默认设置好的-->
+
     <modules>
         <module>shizg-smartme-firstDemo</module>
     </modules>
@@ -78,11 +80,6 @@
                 <version>${feign-form-spring.version}</version>
             </dependency>
             <dependency>
-                <groupId>io.github.openfeign.form</groupId>
-                <artifactId>feign-form-spring</artifactId>
-                <version>${feign-form-spring.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>commons-fileupload</groupId>
                 <artifactId>commons-fileupload</artifactId>
                 <version>${commons-fileupload.version}</version>
@@ -107,6 +104,16 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
             <version>${springfox.swagger}</version>
+        </dependency>
+        <!--3、单元测试-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+        <!--lombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
     </dependencies>
 
