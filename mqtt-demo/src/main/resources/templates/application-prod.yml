@@ -1,0 +1,19 @@
+spring:
+  profiles: prod
+
+mqtt:
+  username: dashboard
+  password:
+  url: tcp://40.73.77.122:1883
+  clientid: mqttId555
+  default:
+    topic: topic22
+  completionTimeout: 10000
+
+
+
+
+
+
+
+

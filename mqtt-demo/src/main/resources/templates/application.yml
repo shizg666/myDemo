@@ -1,0 +1,9 @@
+server:
+  port: 38086
+spring:
+  application:
+    name: mqtt-demo
+  profiles:
+    active: prod
+logging:
+  config: classpath:logback-spring.xml

@@ -1,0 +1,9 @@
+server:
+  port: 38088
+spring:
+  application:
+    name: mysql-test
+  profiles:
+    active: prod
+logging:
+  config: classpath:logback-spring.xml

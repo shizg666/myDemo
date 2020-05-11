@@ -1,0 +1,32 @@
+spring:
+  profiles: prod
+
+  ## mysql
+  datasource:
+    url: jdbc:mysql://172.20.11.201:3306/test_data?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimeZone=CTT
+    username: root
+    password: Landleaf@2020
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    initialSize: 1
+    minIdle: 3
+    maxActive: 100
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 30000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+
+
+
+
+# 配置slq打印日志
+#mybatis-plus:
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+

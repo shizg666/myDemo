@@ -20,6 +20,8 @@
 
     <modules>
         <module>shizg-smartme-firstDemo</module>
+        <module>mysqlplus-demo</module>
+        <module>mqtt-demo</module>
     </modules>
 
     <properties>
