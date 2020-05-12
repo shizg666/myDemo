@@ -81,7 +81,7 @@ this.testService = testService;
         @Override
         public void run() {
             try {
-                testService.save(data);
+//                testService.save(data);
             }catch (Exception e){
                 System.out.println("**************** id :"+data.getId()+"---- "+ e.getMessage());
             }
@@ -101,7 +101,7 @@ this.testService = testService;
         @Override
         public void run() {
             try {
-                testService.saveBatch(data);
+//                testService.saveBatch(data);
             }catch (Exception e){
                 System.out.println("**************** id :"+"---- "+ e.getMessage());
             }

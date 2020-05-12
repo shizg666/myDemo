@@ -1,9 +1,11 @@
 package com.shizg.smartme.controller;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.alibaba.druid.support.json.JSONUtils;
 import com.google.common.collect.Lists;
 import com.shizg.smartme.domin.DeviceData;
 import com.shizg.smartme.domin.DeviceStatusVO;
+import com.shizg.smartme.domin.SmarthomeAddress;
+import com.shizg.smartme.dynamic.AnotherDatasource;
 import com.shizg.smartme.service.ProjectDataListener;
 import com.shizg.smartme.service.TestService;
 import lombok.extern.slf4j.Slf4j;
@@ -28,16 +30,36 @@ public class test {
     private TestService testService;
 
 
-    @GetMapping("/query")
-    public String query(DeviceStatusVO deviceStatusVO) throws InterruptedException {
-        QueryWrapper<DeviceData> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("gateway_mac", deviceStatusVO.getGatewayMac());
-        queryWrapper.orderByDesc("start_time");
+    @GetMapping("/query/{address}")
+    public String query(@PathVariable ("address") String address) throws InterruptedException {
+            // TODO:
+            testService.test(address);
+            return "123";
+    }
+
+    @GetMapping("/query2/{address}")
+    @AnotherDatasource("master")
+    public String query2(@PathVariable ("address") String address) throws InterruptedException {
+        // TODO:
         Long start = System.currentTimeMillis();
-        List<DeviceData> po = testService.list(queryWrapper);
+        SmarthomeAddress smarthomeAddress = testService.getById(address);
         Long end = System.currentTimeMillis();
         log.error("查询结束！耗时：" + (end - start));
-        return "sucess";
+        return JSONUtils.toJSONString(smarthomeAddress);
+
+    }
+
+
+    @GetMapping("/query3/{address}")
+    @AnotherDatasource("slave")
+    public String query3(@PathVariable ("address") String address) throws InterruptedException {
+        // TODO:
+        Long start = System.currentTimeMillis();
+        SmarthomeAddress smarthomeAddress = testService.getById(address);
+        Long end = System.currentTimeMillis();
+        log.error("查询结束！耗时：" + (end - start));
+        return JSONUtils.toJSONString(smarthomeAddress);
+
     }
 
     @GetMapping("/insert")

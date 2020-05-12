@@ -2,31 +2,50 @@ spring:
   profiles: prod
 
   ## mysql
-  datasource:
-    url: jdbc:mysql://172.20.11.201:3306/test_data?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimeZone=CTT
-    username: root
-    password: Landleaf@2020
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    type: com.alibaba.druid.pool.DruidDataSource
-    initialSize: 1
-    minIdle: 3
-    maxActive: 100
-    maxWait: 60000
-    timeBetweenEvictionRunsMillis: 60000
-    minEvictableIdleTimeMillis: 30000
-    validationQuery: select 'x'
-    testWhileIdle: true
-    testOnBorrow: false
-    testOnReturn: false
-    poolPreparedStatements: true
-    maxPoolPreparedStatementPerConnectionSize: 20
+my:
+  dynamic:
+    datasource:
+      enable: true
+      defaultDatasourceName: master
+      datasourceList:
+        - name: master
+          url: jdbc:mysql://40.73.77.122:3306/smart_home?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimeZone=CTT
+          username: root
+          password: aA123456
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          maxActive: 50
+          initialSize: 5
+          validationQuery: select 'x'
+          testWhileIdle: true
+          testOnBorrow: false
+          testOnReturn: false
+          poolPreparedStatements: true
+          maxOpenPreparedStatements: 20
+          minEvictableIdleTimeMillis: 300000
+        #       maxWait: 60000
+        #       minIdle: 1
+        #       timeBetweenEvictionRunsMillis: 60000
+
+        #       spring.datasource.filters: stat
+        - name: slave
+          url: jdbc:mysql://47.103.49.45:3306/smart_home?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimeZone=CTT
+          username: root
+          password: aA123456
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          maxActive: 50
+          initialSize: 5
+          validationQuery: select 'x'
+          testWhileIdle: true
+          testOnBorrow: false
+          testOnReturn: false
+          poolPreparedStatements: true
+          maxOpenPreparedStatements: 20
+          minEvictableIdleTimeMillis: 300000
 
 
-
-
-# 配置slq打印日志
-#mybatis-plus:
-#  configuration:
-#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+ #配置slq打印日志
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 

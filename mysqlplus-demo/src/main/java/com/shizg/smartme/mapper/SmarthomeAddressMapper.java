@@ -1,9 +1,8 @@
 package com.shizg.smartme.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.shizg.smartme.domin.DeviceData;
 import com.shizg.smartme.domin.SmarthomeAddress;
-import org.springframework.stereotype.Repository;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * <p>
@@ -13,9 +12,7 @@ import org.springframework.stereotype.Repository;
  * @author lokiy
  * @since 2019-08-12
  */
-@Repository
-public interface DeviceStatusMapper extends BaseMapper<SmarthomeAddress> {
-
-
+@Mapper
+public interface SmarthomeAddressMapper extends BaseMapper<SmarthomeAddress> {
 
 }
